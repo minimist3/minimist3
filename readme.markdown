@@ -53,7 +53,8 @@ Any arguments after `'--'` will not be parsed and will end up in `argv._`.
 
 options can be:
 
-* `opts.string` - a string or array of strings of argument names whose values to
+* `opts.string` - a string or array of strings of argument names (or indexes of
+positional arguments) whose values to
 always treat as strings. if `true` will treat all argument values as strings
 regardless of name.
 * `opts.boolean` - a boolean, string or array of strings to always treat as

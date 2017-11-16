@@ -29,12 +29,16 @@ module.exports = function (args, opts) {
         });
     });
 
-    [].concat(opts.string).filter(Boolean).forEach(function (key) {
-        flags.strings[key] = true;
-        if (aliases[key]) {
-            flags.strings[aliases[key]] = true;
-        }
-     });
+    [].concat(opts.string)
+        .filter(function (val) {
+            return Boolean(val) || val === 0;
+        })
+        .forEach(function (key) {
+            flags.strings[key] = true;
+            if (aliases[key]) {
+                flags.strings[aliases[key]] = true;
+            }
+        });
 
     var defaults = opts['default'] || {};
     
@@ -100,6 +104,7 @@ module.exports = function (args, opts) {
       });
     }
 
+    var posInd = 0;
     for (var i = 0; i < args.length; i++) {
         var arg = args[i], m, isStr = typeof arg === 'string' ;
         
@@ -190,10 +195,10 @@ module.exports = function (args, opts) {
         }
         else {
             if (!flags.unknownFn || flags.unknownFn(arg) !== false) {
-                argv._.push(
-                    flags.strings['_'] || !isNumber(arg) ? arg : Number(arg)
-                );
+                var asString = flags.strings[posInd] || flags.strings['_'] || !isNumber(arg);
+                argv._.push(asString ? arg : Number(arg));
             }
+            posInd++;
             if (opts.stopEarly) {
                 argv._.push.apply(argv._, args.slice(i + 1));
                 break;
