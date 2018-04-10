@@ -35,3 +35,14 @@ test('already a number', function (t) {
     t.deepEqual(typeof argv._[0], 'number');
     t.end();
 });
+
+test('IsNumber with real number', function (t) {
+    var argv = parse([
+        '-x', 1234
+    ]);
+    t.deepEqual(argv, {
+        _: [],
+        x: 1234
+    });
+    t.end();
+});
