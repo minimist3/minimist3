@@ -30,9 +30,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/minimist.git"
+    "url": "git://github.com/minimist3/minimist3.git"
   },
-  "homepage": "https://github.com/substack/minimist",
+  "homepage": "https://github.com/minimist3/minimist3",
   "keywords": [
     "argv",
     "getopt",
