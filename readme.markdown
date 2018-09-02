@@ -23,7 +23,7 @@ npm install minimist3
 # example
 
 ``` js
-var argv = require('minimist')(process.argv.slice(2));
+var argv = require('minimist3')(process.argv.slice(2));
 console.dir(argv);
 ```
 
@@ -47,7 +47,7 @@ $ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop foo bar baz
 # methods
 
 ``` js
-var parseArgs = require('minimist')
+var parseArgs = require('minimist3')
 ```
 
 ## var argv = parseArgs(args, opts={})
