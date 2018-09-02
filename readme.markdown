@@ -5,9 +5,20 @@ parse argument options
 This module is the guts of optimist's argument parser without all the
 fanciful decoration.
 
-[![browser support](https://ci.testling.com/substack/minimist.png)](http://ci.testling.com/substack/minimist)
+# motivation
 
-[![build status](https://secure.travis-ci.org/substack/minimist.png)](http://travis-ci.org/substack/minimist)
+The original minimist package has not been updated for years. I (and others) 
+still have projects depend on it, so I decided to publish my own maintained 
+branch to the public. The goal of this package is to be the drop-in 
+replacement for the original minimist package, and be fully compatible. 
+
+# install
+
+With [npm](https://npmjs.org) do:
+
+```
+npm install minimist3
+```
 
 # example
 
@@ -80,14 +91,6 @@ and `argv['--']` with everything after the `--`. Here's an example:
 * `opts.unknown` - a function which is invoked with a command line parameter not
 defined in the `opts` configuration object. If the function returns `false`, the
 unknown option is not added to `argv`.
-
-# install
-
-With [npm](https://npmjs.org) do:
-
-```
-npm install minimist
-```
 
 # license
 
